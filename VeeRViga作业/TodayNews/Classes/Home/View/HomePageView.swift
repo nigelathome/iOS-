@@ -32,8 +32,6 @@ class HomePageView: UIView {
             let vc = childVcs![currentIndex]
             vc.view.frame = CGRect(x: 0, y: 0, width: scrollView.width, height: scrollView.height)
             scrollView.addSubview(vc.view)
-            
-//            collectionView.reloadData()
         }
     }
     
@@ -113,34 +111,6 @@ extension HomePageView: UIScrollViewDelegate {
     }
 }
 
-// MARK:- UICollectionView的delegate
-//extension HomePageView : UIScrollViewDelegate {
-//    
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        contentEndScroll()
-//        scrollView.isScrollEnabled = true
-//    }
-//    
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if !decelerate {
-//            contentEndScroll()
-//        } else {
-//            scrollView.isScrollEnabled = false
-//        }
-//    }
-//    
-//    private func contentEndScroll() {
-//        // 获取滚动到的位置
-//        let currentIndex = Int(collectionView.contentOffset.x / collectionView.bounds.width)
-//        // 通知titleView进行调整
-//        homePageDelegate?.pageView(self, targetIndex: currentIndex)
-//    }
-//    
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        isForbidScroll = false
-//        startOffsetX = scrollView.contentOffset.x
-//    }
-//}
 
 // MARK:- 遵守HYTitleViewDelegate
 extension HomePageView : HomeTitleViewDelegate {
