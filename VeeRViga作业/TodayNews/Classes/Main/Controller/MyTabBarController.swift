@@ -29,9 +29,6 @@ class MyTabBarController: UITabBarController {
      */
     private func addChildViewControllers() {
         addChildViewController(childController: HomeViewController(), title: "首页", imageName: "home_tabbar_32x32_", selectedImage: "home_tabbar_press_32x32_")
-        
-        addChildViewController(childController: WeiTouTiaoViewController(), title: "微头条", imageName: "weitoutiao_tabbar_32x32_", selectedImage: "weitoutiao_tabbar_press_32x32_")
-        addChildViewController(childController: MineViewController(), title: "未登录", imageName: "no_login_tabbar_32x32_", selectedImage: "no_login_tabbar_press_32x32_")
     }
     
     private func addChildViewController(childController: UIViewController, title: String, imageName: String, selectedImage: String) {

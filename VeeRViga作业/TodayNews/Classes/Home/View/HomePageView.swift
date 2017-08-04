@@ -23,7 +23,7 @@ class HomePageView: UIView {
     
     var titles: [TopicTitle]? {
         didSet {
-            titleView.titles = titles
+//            titleView.titles = titles
         }
     }
     
@@ -70,7 +70,7 @@ extension HomePageView {
         
         titleView.snp.makeConstraints { (make) in
             make.top.left.right.equalTo(self)
-            make.height.equalTo(40)
+            make.height.equalTo(0)
             make.bottom.equalTo(scrollView.snp.top)
         }
         
@@ -118,8 +118,5 @@ extension HomePageView : HomeTitleViewDelegate {
         currentIndex = targetIndex
         let offset = CGPoint(x: screenWidth * CGFloat(targetIndex), y: 0)
         scrollView.setContentOffset(offset, animated: true)
-
-//        let indexPath = IndexPath(item: targetIndex, section: 0)
-//        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
     }
 }
