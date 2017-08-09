@@ -66,7 +66,10 @@ class NetworkTool {
                     let content = data["content"].stringValue
                     let contentData: NSData = content.data(using: String.Encoding.utf8)! as NSData
                     do {
+                        // jsonObject主要将序列化成UTF-8点NSData实例转换成NSDic或者NSArray或者NSString对象
                         let dict = try JSONSerialization.jsonObject(with: contentData as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                        
+                        // 取出标题
                         let topic = WeiTouTiao(dict: dict as! [String : AnyObject])
                         print(dict)
                         print("---------------------------------")
