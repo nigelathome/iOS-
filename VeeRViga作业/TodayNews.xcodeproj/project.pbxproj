@@ -11,6 +11,7 @@
 		910A68FA1F333021001738B7 /* galary2.png in Resources */ = {isa = PBXBuildFile; fileRef = 910A68F91F333021001738B7 /* galary2.png */; };
 		910A68FC1F333083001738B7 /* galary3.png in Resources */ = {isa = PBXBuildFile; fileRef = 910A68FB1F333083001738B7 /* galary3.png */; };
 		910B9D0B1F33141200B0A356 /* SliderGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B9D0A1F33141200B0A356 /* SliderGalleryController.swift */; };
+		916003071F38062300E7ACA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916003061F38062300E7ACA0 /* CoreData.framework */; };
 		94189EC91F03CB45000864A7 /* ConcernNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94189EC81F03CB45000864A7 /* ConcernNavigationView.swift */; };
 		94189ECB1F03CB56000864A7 /* ConcernNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94189ECA1F03CB56000864A7 /* ConcernNavigationView.xib */; };
 		94189EDF1F05331B000864A7 /* TopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94189EDD1F05331B000864A7 /* TopTabViewController.swift */; };
@@ -129,6 +130,7 @@
 		910A68F91F333021001738B7 /* galary2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = galary2.png; path = Assets.xcassets/galary2.png; sourceTree = "<group>"; };
 		910A68FB1F333083001738B7 /* galary3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = galary3.png; path = Assets.xcassets/galary3.png; sourceTree = "<group>"; };
 		910B9D0A1F33141200B0A356 /* SliderGalleryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderGalleryController.swift; sourceTree = "<group>"; };
+		916003061F38062300E7ACA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		94189EC81F03CB45000864A7 /* ConcernNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcernNavigationView.swift; sourceTree = "<group>"; };
 		94189ECA1F03CB56000864A7 /* ConcernNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConcernNavigationView.xib; sourceTree = "<group>"; };
 		94189EDD1F05331B000864A7 /* TopTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916003071F38062300E7ACA0 /* CoreData.framework in Frameworks */,
 				EE46BE76FC8C234C92296B82 /* Pods_TodayNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +261,7 @@
 		831FDBDD5036AA9DF4A9F3EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				916003061F38062300E7ACA0 /* CoreData.framework */,
 				280B7838DD62799363838C22 /* Pods_TodayNews.framework */,
 			);
 			name = Frameworks;

@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 设置导航栏颜色
-        navigationController?.navigationBar.barTintColor = UIColor.globalRedColor()
+//        navigationController?.navigationBar.barTintColor = UIColor.globalRedColor()
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -23,9 +24,9 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = UIColor.globalBackgroundColor()
         // 设置导航栏属性
-        navigationController?.navigationBar.barStyle = .black
+//        navigationController?.navigationBar.barStyle = .black
       
-        automaticallyAdjustsScrollViewInsets = false
+        automaticallyAdjustsScrollViewInsets = true
         /// 获取标题数据
         NetworkTool.loadHomeTitlesData(fromViewController: String(describing: HomeViewController.self)) { (topTitles, homeTopicVCs) in
             // 将所有子控制器添加到父控制器中
@@ -59,7 +60,7 @@ extension HomeViewController {
         
         pageView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(view)
-            make.top.equalTo(view).offset(kNavBarHeight)
+            make.top.equalTo(view).offset(0)
         }
     }
     

@@ -13,8 +13,8 @@ class MyTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tabBar = UITabBar.appearance()
-        tabBar.tintColor = UIColor(red: 245 / 255, green: 90 / 255, blue: 93 / 255, alpha: 1/0)
+//        let tabBar = UITabBar.appearance()
+//        tabBar.tintColor = UIColor(red: 245 / 255, green: 90 / 255, blue: 93 / 255, alpha: 1/0)
         
 //        addChildViewControllers()
     }
@@ -28,7 +28,7 @@ class MyTabBarController: UITabBarController {
      * 添加子控制器
      */
     private func addChildViewControllers() {
-        addChildViewController(childController: HomeViewController(), title: "首页", imageName: "home_tabbar_32x32_", selectedImage: "home_tabbar_press_32x32_")
+        addChildViewController(childController: HomeViewController(), title: "", imageName: "", selectedImage:"")
     }
     
     private func addChildViewController(childController: UIViewController, title: String, imageName: String, selectedImage: String) {

@@ -62,19 +62,19 @@ class NetworkTool {
                 let json = JSON(value)
                 let datas = json["data"].array
                 var topics = [WeiTouTiao]()
-//                for data in datas! {
-//                    let content = data["content"].stringValue
-//                    let contentData: NSData = content.data(using: String.Encoding.utf8)! as NSData
-//                    do {
-//                        let dict = try JSONSerialization.jsonObject(with: contentData as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
-//                        let topic = WeiTouTiao(dict: dict as! [String : AnyObject])
-//                        print(dict)
-//                        print("---------------------------------")
-//                        topics.append(topic)
-//                    } catch {
-//                        
-//                    }
-//                }
+                for data in datas! {
+                    let content = data["content"].stringValue
+                    let contentData: NSData = content.data(using: String.Encoding.utf8)! as NSData
+                    do {
+                        let dict = try JSONSerialization.jsonObject(with: contentData as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                        let topic = WeiTouTiao(dict: dict as! [String : AnyObject])
+                        print(dict)
+                        print("---------------------------------")
+                        topics.append(topic)
+                    } catch {
+                        
+                    }
+                }
                 completionHandler(nowTime, topics)
             }
         }

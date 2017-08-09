@@ -52,18 +52,13 @@ class HomeTopicCell: UITableViewCell {
             }
         
             
-//            if let comment_count = weitoutiao!.comment_count {
-//                commentLabel.text = "\(comment_count)" + "评论"
-//            }
-//            createTimeLabel.text = weitoutiao!.createTime
-            
             if weitoutiao!.has_image != nil  {
                 if weitoutiao!.has_image! {
                     if weitoutiao!.image_list.count > 0 {
                         if weitoutiao!.image_list.count == 1 {
-                            rightButton.kf.setImage(with: URL(string: weitoutiao!.image_list.first!.url!), for: .normal)
-                            rightButtonWidth.constant = (screenWidth - 2 * kMargin - 20) / 3
-                            rightButton.layoutIfNeeded()
+//                            rightButton.kf.setImage(with: URL(string: weitoutiao!.image_list.first!.url!), for: .normal)
+//                            rightButtonWidth.constant = (screenWidth - 2 * kMargin - 20) / 3
+//                            rightButton.layoutIfNeeded()
                         } else {
                             middleView.addSubview(thumbCollectionView)
                             thumbCollectionView.snp.makeConstraints({ (make) in
@@ -79,8 +74,7 @@ class HomeTopicCell: UITableViewCell {
                                 make.top.left.bottom.right.equalTo(self.middleView)
                             })
                         } else {
-//                            rightButton.kf.setImage(with: URL(string: weitoutiao!.middle_image!.url!), for: .normal)
-//                            rightButton.width = (screenWidth - 2 * kMargin - 2 * 6) / 3
+
                         }
                     }
                 } else if weitoutiao!.has_video! {
@@ -172,6 +166,8 @@ extension HomeTopicCell: UICollectionViewDelegate, UICollectionViewDataSource, U
         let imageH = imageW * 0.8
         return CGSize(width: imageW, height: imageH)
     }
+    
+    
 }
 
 
