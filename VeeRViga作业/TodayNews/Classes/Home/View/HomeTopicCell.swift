@@ -39,6 +39,10 @@ class HomeTopicCell: UITableViewCell {
     
     var weitoutiao: WeiTouTiao? {
         didSet {
+            guard weitoutiao!.has_image != nil else {
+                return
+            }
+            
             if let title = weitoutiao!.title {
                 newsTitleLabel.text = String(title)
             }
