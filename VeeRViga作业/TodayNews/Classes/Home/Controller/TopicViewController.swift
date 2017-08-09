@@ -16,13 +16,10 @@ class TopicViewController: UIViewController {
     // 存放新闻主题的数组
     fileprivate var newsTopics = [WeiTouTiao]()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         tableView.tableHeaderView =  noLoginHeaderView
-        
         
         NetworkTool.loadHomeCategoryNewsFeed(category: topicTitle!.category!) { (nowTime, newsTopics) in
             self.newsTopics = newsTopics
@@ -152,14 +149,13 @@ extension TopicViewController {
 extension TopicViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if topicTitle!.category == "video" {
-//            return screenHeight * 0.4
-//        } else if topicTitle!.category == "subscription" { // 头条号
-//            return 68
-//        }
-//        let weitoutiao = newsTopics[indexPath.row]
-//        return weitoutiao.homeCellHeight!
-        return 30
+        if topicTitle!.category == "video" {
+            return screenHeight * 0.4
+        } else if topicTitle!.category == "subscription" { // 头条号
+            return 68
+        }
+        let weitoutiao = newsTopics[indexPath.row]
+        return weitoutiao.homeCellHeight!
     }
     
     // MARK: - Table view data source
@@ -187,7 +183,6 @@ extension TopicViewController: UITableViewDelegate, UITableViewDataSource {
             let topicDetailVC = TopicDetailController()
             navigationController?.pushViewController(topicDetailVC, animated: true)
         }
-        
     }
     
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

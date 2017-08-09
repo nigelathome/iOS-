@@ -51,73 +51,37 @@ class HomeTopicCell: UITableViewCell {
                     hotLabel.isHidden = false
                     hotLabel.text = hot_label
                 } else {
-                    
+                    hotLabel.isHidden = true
                 }
             }
         
-            
-            if weitoutiao!.has_image != nil  {
-                if weitoutiao!.has_image! {
-                    if weitoutiao!.image_list.count > 0 {
-                        if weitoutiao!.image_list.count == 1 {
-//                            rightButton.kf.setImage(with: URL(string: weitoutiao!.image_list.first!.url!), for: .normal)
-//                            rightButtonWidth.constant = (screenWidth - 2 * kMargin - 20) / 3
-//                            rightButton.layoutIfNeeded()
-                        } else {
-                            middleView.addSubview(thumbCollectionView)
-                            thumbCollectionView.snp.makeConstraints({ (make) in
-                                make.top.left.bottom.right.equalTo(middleView)
-                            })
-                        }
-                    } else {
-                        if weitoutiao!.large_image_list.count > 0 {
-                            let largeImageView = UIImageView()
-                            middleView.addSubview(largeImageView)
-                            largeImageView.kf.setImage(with: URL(string: weitoutiao!.large_image_list.first!.url!))
-                            largeImageView.snp.makeConstraints({ (make) in
-                                make.top.left.bottom.right.equalTo(self.middleView)
-                            })
-                        } else {
-
-                        }
-                    }
-                } else if weitoutiao!.has_video! {
-                    videoView.imageButton.kf.setBackgroundImage(with: URL(string: weitoutiao!.video_detail_info!.detail_video_large_image!.url!), for: .normal)
-                    self.middleView.addSubview(videoView)
-                    videoView.snp.makeConstraints({ (make) in
-                        make.top.left.bottom.right.equalTo(self.middleView)
-                    })
-                }
-            } else {
-                if weitoutiao!.thumb_image_list.count != 0 {
-                    self.middleView.addSubview(thumbCollectionView)
-                    thumbCollectionView.snp.makeConstraints({ (make) in
-                        make.top.left.bottom.right.equalTo(self.middleView)
-                    })
-                    // 1 or 2
-                    let imageHeight1or2 = (screenWidth - kMargin * 2 - 6) * 0.5
-                    // >= 3
-                    let imageH = (screenWidth - kMargin * 2 - 12) / 3
-                    switch weitoutiao!.thumb_image_list.count {
-                    case 1:
-                        thumbCollectionView.snp.remakeConstraints({ (make) in
-                            make.width.equalTo(screenWidth * 0.7)
-                            make.top.left.equalTo(self.middleView)
-                            make.height.equalTo(imageHeight1or2)
+            if weitoutiao!.has_image! {
+                if weitoutiao!.image_list.count > 0 {
+                    if weitoutiao!.image_list.count == 1 {
+                        let largeImageView = UIImageView()
+                        middleView.addSubview(largeImageView)
+                        largeImageView.kf.setImage(with: URL(string: weitoutiao!.large_image_list.first!.url!))
+                        largeImageView.snp.makeConstraints({ (make) in
+                            make.top.left.bottom.right.equalTo(self.middleView)
                         })
-                    case 2:
-                        thumbCollectionView.height = imageHeight1or2
-                    case 3:
-                        thumbCollectionView.height = imageH
-                    case 4...6:
-                        thumbCollectionView.height = imageH * 2 + 3 + 20
-                    case 7...9:
-                        thumbCollectionView.height = imageH * 3 + 6 + 20
-                    default:
-                        height += 0
+                    } else {
+                        middleView.addSubview(thumbCollectionView)
+                        thumbCollectionView.snp.makeConstraints({ (make) in
+                            make.top.left.bottom.right.equalTo(middleView)
+                        })
+                    }
+                } else {
+                    if weitoutiao!.large_image_list.count > 0 {
+                        let largeImageView = UIImageView()
+                        middleView.addSubview(largeImageView)
+                        largeImageView.kf.setImage(with: URL(string: weitoutiao!.large_image_list.first!.url!))
+                        largeImageView.snp.makeConstraints({ (make) in
+                            make.top.left.bottom.right.equalTo(self.middleView)
+                        })
                     }
                 }
             }
+            
             
         }
     }
@@ -155,13 +119,17 @@ class HomeTopicCell: UITableViewCell {
 extension HomeTopicCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weitoutiao!.image_list.count
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ThumbCollectionViewCell.self), for: indexPath) as! ThumbCollectionViewCell
-        let thumbImage = weitoutiao!.image_list[indexPath.item]
-        cell.thumbImageURL = (thumbImage.url)!
+        if indexPath.item == 0 {
+            let thumbImage = weitoutiao!.image_list[0]
+            cell.thumbImageURL = (thumbImage.url)!
+        } else {
+            
+        }
         return cell
     }
     
