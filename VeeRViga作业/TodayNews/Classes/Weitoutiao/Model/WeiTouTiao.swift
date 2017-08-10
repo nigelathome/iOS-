@@ -50,11 +50,7 @@ class WeiTouTiao {
                         }
                     }
                 }
-                if has_video! { // 说明是视频
-                    let videoW = screenWidth - 2 * kMargin
-                    let videoH = videoW * video_detail_info!.detail_video_large_image!.height! / video_detail_info!.detail_video_large_image!.width!
-                    height += videoH
-                }
+                
             } else {
                 if thumb_image_list.count != 0 {
                     // 1 or 2
