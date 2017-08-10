@@ -39,41 +39,12 @@ class WeiTouTiao {
                             let imageH = imageW * 0.8
                             height += imageH
                         }
-                    } else {
-                        if large_image_list.count > 0 {
-                            let largeImageW = screenWidth - 2 * kMargin
-                            let largeImageH = largeImageW * 0.8
-                            height += largeImageH
-                        } else if middle_image != nil { // 只有 middle_image 有值，则显示到右侧
-                            let imageH = imageW * 0.8
-                            return imageH
-                        }
-                    }
-                }
-                
-            } else {
-                if thumb_image_list.count != 0 {
-                    // 1 or 2
-                    let imageWidth1or2 = (screenWidth - kMargin * 2 - 6) * 0.5
-                    // >= 3
-                    let imageH = (screenWidth - kMargin * 2 - 12) / 3
-                    switch thumb_image_list.count {
-                    case 1, 2:
-                        height += imageWidth1or2
-                    case 3:
-                        height += imageH
-                    case 4...6:
-                        height += (imageH * 2 + 3)
-                    case 7...9:
-                        height += (imageH * 3 + 6)
-                    default:
-                        height += 0
                     }
                 }
             }
             
             // 12 是标题距离顶部的间距，40 是底部 view 的高度，7 是 标题距离中间 view 的间距
-            return height + 12 + 40 + 7
+            return height
         }
     }
     

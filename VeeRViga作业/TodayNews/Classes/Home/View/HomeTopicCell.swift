@@ -46,6 +46,8 @@ class HomeTopicCell: UITableViewCell {
             }
             
             if let title = weitoutiao!.title {
+                newsTitleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+                newsTitleLabel.numberOfLines = 0
                 newsTitleLabel.text = String(title)
             }
             if let hot_label = weitoutiao!.label {
@@ -56,8 +58,11 @@ class HomeTopicCell: UITableViewCell {
                     hotLabel.isHidden = true
                 }
             }
+            if weitoutiao!.image_list.count != 0 {
+                middleView.kf.setImage(with: URL(string: (weitoutiao?.image_list[0].url)!))
+            }
             
-            //
+            
         }
     }
     

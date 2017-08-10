@@ -149,13 +149,10 @@ extension TopicViewController {
 extension TopicViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if topicTitle!.category == "video" {
-            return screenHeight * 0.4
-        } else if topicTitle!.category == "subscription" { // 头条号
-            return 68
-        }
-        let weitoutiao = newsTopics[indexPath.row]
-        return weitoutiao.homeCellHeight!
+        return 120
+//        let weitoutiao = newsTopics[indexPath.row]
+//        return weitoutiao.homeCellHeight!
+        
     }
     
     // MARK: - Table view data source
@@ -166,13 +163,9 @@ extension TopicViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = Bundle.main.loadNibNamed(String(describing: HomeTopicCell.self), owner: nil, options: nil)?.last as! HomeTopicCell
-//        cell.weitoutiao = newsTopics[indexPath.row]
-        let title:String = String(format: "今天明天后天大后天%d", indexPath.item + 1);
+        cell.weitoutiao = newsTopics[indexPath.row]
+        let title:String = String(format: "胜仗之间：人民军队如何打赢未来战争%d", indexPath.item + 1);
         cell.newsTitleLabel.text = title
-        let name:String = String(format: "%d", indexPath.item + 1);
-        let imageView:UIImageView = UIImageView();
-        imageView.image = WTTMiddleImage(named: name);
-        cell.middleView = imageView
         return cell
     }
     
