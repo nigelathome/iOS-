@@ -32,14 +32,16 @@ class HomeTopicCell: UITableViewCell {
     /// 发布时间
     @IBOutlet weak var createTimeLabel: UILabel!
     /// 发布时间
-    @IBOutlet weak var middleView: UIView!
+    @IBOutlet weak var middleView: UIImageView!
     /// 右侧按钮图片
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var rightButtonWidth: NSLayoutConstraint!
     
     var weitoutiao: WeiTouTiao? {
         didSet {
-            guard weitoutiao!.has_image != nil else {
+            guard (weitoutiao!.has_image != nil
+                || weitoutiao!.large_image_list.count >= 0
+                || weitoutiao!.image_list.count == 1) else {
                 return
             }
             
@@ -54,35 +56,8 @@ class HomeTopicCell: UITableViewCell {
                     hotLabel.isHidden = true
                 }
             }
-        
-            if weitoutiao!.has_image! {
-                if weitoutiao!.image_list.count > 0 {
-                    if weitoutiao!.image_list.count == 1 {
-                        let largeImageView = UIImageView()
-                        middleView.addSubview(largeImageView)
-                        largeImageView.kf.setImage(with: URL(string: weitoutiao!.large_image_list.first!.url!))
-                        largeImageView.snp.makeConstraints({ (make) in
-                            make.top.left.bottom.right.equalTo(self.middleView)
-                        })
-                    } else {
-                        middleView.addSubview(thumbCollectionView)
-                        thumbCollectionView.snp.makeConstraints({ (make) in
-                            make.top.left.bottom.right.equalTo(middleView)
-                        })
-                    }
-                } else {
-                    if weitoutiao!.large_image_list.count > 0 {
-                        let largeImageView = UIImageView()
-                        middleView.addSubview(largeImageView)
-                        largeImageView.kf.setImage(with: URL(string: weitoutiao!.large_image_list.first!.url!))
-                        largeImageView.snp.makeConstraints({ (make) in
-                            make.top.left.bottom.right.equalTo(self.middleView)
-                        })
-                    }
-                }
-            }
             
-            
+            //
         }
     }
     
@@ -98,21 +73,6 @@ class HomeTopicCell: UITableViewCell {
         
     }
     
-    // MARK: 视频图片
-    private lazy var videoView: CellVideoView = {
-        let videoView = CellVideoView.cellVideoView()
-        return videoView
-    }()
-    
-    // MARK: 缩略图
-    private lazy var thumbCollectionView: ThumbCollectionView = {
-        let thumbCollectionView = ThumbCollectionView.collectionViewWithFrame(frame: CGRect.zero)
-        thumbCollectionView.register(UINib(nibName: String(describing: ThumbCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: ThumbCollectionViewCell.self))
-        thumbCollectionView.isScrollEnabled = false
-        thumbCollectionView.delegate = self
-        thumbCollectionView.dataSource = self
-        return thumbCollectionView
-    }()
 }
 
 // MARK: - UICollectionViewDelegate

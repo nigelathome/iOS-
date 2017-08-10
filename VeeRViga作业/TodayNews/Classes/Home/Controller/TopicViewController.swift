@@ -160,29 +160,26 @@ extension TopicViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if topicTitle!.category == "subscription" {
-            return 10
-        } else {
-            return newsTopics.count
-        }
+        return newsTopics.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = Bundle.main.loadNibNamed(String(describing: HomeTopicCell.self), owner: nil, options: nil)?.last as! HomeTopicCell
-        cell.weitoutiao = newsTopics[indexPath.row]
+//        cell.weitoutiao = newsTopics[indexPath.row]
+        let title:String = String(format: "今天明天后天大后天%d", indexPath.item + 1);
+        cell.newsTitleLabel.text = title
+        let name:String = String(format: "%d", indexPath.item + 1);
+        let imageView:UIImageView = UIImageView();
+        imageView.image = WTTMiddleImage(named: name);
+        cell.middleView = imageView
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if topicTitle!.category == "video" {
-//            let videoDetailVC = VideoDetailController()
-//            //        videoDetailVC.videoTopic = newsTopics[indexPath.row]
-//            navigationController?.pushViewController(videoDetailVC, animated: true)
-        } else {
-            let topicDetailVC = TopicDetailController()
-            navigationController?.pushViewController(topicDetailVC, animated: true)
-        }
+        let topicDetailVC = TopicDetailController()
+        navigationController?.pushViewController(topicDetailVC, animated: true)
+    
     }
     
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
